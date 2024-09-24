@@ -1,0 +1,70 @@
+/* Resetting default margin and padding, setting font and background color */
+body {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  font-family: monospace; /* Sets a monospace font for the entire page */
+  background: black; /* Sets the background color to black */
+}
+
+/* Centering the loader in the viewport */
+.center {
+  display: flex; /* Enables flexbox layout */
+  text-align: center; /* Centers text horizontally */
+  justify-content: center; /* Centers flex items horizontally */
+  align-items: center; /* Centers flex items vertically */
+  min-height: 100vh; /* Makes the container at least the height of the viewport */
+}
+
+/* Styling the loading ring */
+.ring {
+  position: absolute; /* Positions the ring relative to its nearest positioned ancestor */
+  width: 200px; /* Sets the width of the ring */
+  height: 200px; /* Sets the height of the ring */
+  border: 50%; /* Not a standard property; could be an attempt to create a circle */
+}
+
+/* Styling the pseudo-element for the animated ring */
+.ring::before {
+  position: absolute; /* Positions the pseudo-element absolutely */
+  content: ""; /* Creates an empty content box */
+  left: 0; /* Positions to the left */
+  top: 0; /* Positions to the top */
+  height: 100%; /* Sets height to 100% of the parent */
+  width: 100%; /* Sets width to 100% of the parent */
+  border-radius: 50%; /* Makes it a circle */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Adds a glowing effect */
+  animation: ring 2s linear infinite; /* Applies the ring animation */
+}
+
+/* Defining the animation for the ring */
+@keyframes ring {
+  0% {
+    transform: rotate(0deg); /* Starts from no rotation */
+    box-shadow: 1px 5px 2px #e65c00; /* Initial shadow color */
+  }
+  50% {
+    transform: rotate(180deg); /* Rotates halfway */
+    box-shadow: 1px 5px 2px #18b201; /* Changes shadow color */
+  }
+  100% {
+    transform: rotate(360deg); /* Completes the rotation */
+    box-shadow: 1px 5px 2px #0456c8; /* Changes shadow color again */
+  }
+}
+
+/* Styling the loading text */
+span {
+  color: #737373; /* Sets text color */
+  font-size: 20px; /* Sets font size */
+  text-transform: uppercase; /* Transforms text to uppercase */
+  letter-spacing: 1px; /* Adds space between letters */
+  line-height: 200px; /* Vertically centers the text within the ring */
+  animation: text 3s ease-in-out infinite; /* Applies the text animation */
+}
+
+/* Defining the animation for the text */
+@keyframes text {
+  50% {
+    color: black; /* Changes color to black halfway through the animation */
+  }
+}
